@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @reportnumber.date %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @reportnumber.timestamp %>
+</p>
+
+<p>
+  <strong>Phonenumber:</strong>
+  <%= @reportnumber.phonenumber %>
+</p>
+
+<p>
+  <strong>Location of Caller:</strong>
+  <%= @reportnumber.locationofnumber %>
+</p>
+
+<p>
+  <strong>String:</strong>
+  <%= @reportnumber.string %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @reportnumber.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @reportnumber.description %>
+</p>
+
+<%= link_to 'Edit', edit_reportnumber_path(@reportnumber) %> |
+<%= link_to 'Back', reportnumbers_path %>

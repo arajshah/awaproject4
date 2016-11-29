@@ -1,0 +1,1 @@
+json.array! @reportnumbers, partial: 'reportnumbers/reportnumber', as: :reportnumber

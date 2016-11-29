@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  timestamp: MyString
+  phonenumber: MyString
+  integer: MyString
+  locationofnumber: MyString
+  string: MyString
+  category: MyString
+  string: MyString
+  description: MyString
+  string: MyString
+
+two:
+  date: MyString
+  timestamp: MyString
+  phonenumber: MyString
+  integer: MyString
+  locationofnumber: MyString
+  string: MyString
+  category: MyString
+  string: MyString
+  description: MyString
+  string: MyString
