@@ -2,6 +2,11 @@
 
 <h1>List of Reported Numbers</h1>
 
+<%= form_tag reportnumbers_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+  <% end %> 
+
 <table>
   <thead>
     <tr>

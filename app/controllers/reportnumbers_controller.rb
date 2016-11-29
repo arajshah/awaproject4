@@ -1,10 +1,15 @@
 class ReportnumbersController < ApplicationController
   before_action :set_reportnumber, only: [:show, :edit, :update, :destroy]
 
+
+    
   # GET /reportnumbers
   # GET /reportnumbers.json
   def index
-    @reportnumbers = Reportnumber.all
+    #@reportnumbers = Reportnumber.all
+    
+    @reportnumbers = Reportnumber.where(["phonenumber LIKE ?", "%#{params[:search]}%"])
+    
   end
 
   # GET /reportnumbers/1
@@ -73,6 +78,9 @@ class ReportnumbersController < ApplicationController
     def reportnumber_params
       params.require(:reportnumber).permit(:date, :timestamp, :phonenumber, :integer, :locationofnumber, :string, :category, :string, :description, :string)
     end
+    
+
+  
 end
   
   
