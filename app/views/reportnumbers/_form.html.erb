@@ -1,51 +1,173 @@
-<h5> Note: We are a service that allows you to submit sketchy numbers. We collect these numbers and provide users with the ability to view sketchy numbers. If someone is harrasing you, trying to take your money, or doing anything to interrupt your 
-safety, please report numbers to your local official authorities. Remember: When in doubt, don't respond! </h5>
+<head>
+  <title>Material Design for Bootstrap temporary development test case</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<%= form_for(@reportnumber) do |f| %>
-  <% if @reportnumber.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reportnumber.errors.count, "error") %> prohibited this reportnumber from being saved:</h2>
+  <!-- Mobile support -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <ul>
-      <% @reportnumber.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <!-- Material Design fonts -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Material Design -->
+<link href="dist/css/bootstrap-material-design.css" rel="stylesheet">
+<link href="dist/css/ripples.min.css" rel="stylesheet">
+
+  <!-- Dropdown.js -->
+<link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+  <!-- Page style -->
+<link href="application.css" rel="stylesheet">
+
+  <!-- jQuery -->
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+
+</head>
+
+<html>
+  <body>
+    <div class="full-page-sec">
+      <div class="ctr-content constrained">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h1 class="panel-title">Find or Report a Sketchy Phone Number!</h1>
+          </div>
+          <div class="panel-body">
+             <center> <font size="3"><b> Search a Sketchy Phone Number or Report a Spammy Caller. </b></font> </center>
+          </div>
+        </div>
+
+        <div class="btn-group btn-group-sm btn-group-justified btn-group-raised" role="group">
+            <label class="btn btn-default" onclick="document.getElementById('form2').style.visibility='visible'; document.getElementById('form1').style.visibility = 'collapse'" value="Show second div">
+              <center> <font color="red" size="5"><b> Find a Number </b></font></center>    
+            </label>
+
+              <label class="btn btn-default" onclick="document.getElementById('form1').style.visibility='visible'; document.getElementById('form2').style.visibility = 'collapse'" value="Show second div">
+              <center> <font color="red" size="5"><b> Report a Number </b></font></center>
+              </label>
+     
+              
+       </div>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    Date (MM/DD/YYYY): <%= f.text_field :date %>
-  </div>
-  <div class="field">
-    <% f.label :timestamp %><br>
-    <% f.text_field :timestamp %>
-  </div>
-  <div class="field">
-    Ten Digit Phone Number: <%= f.text_field :phonenumber %>
-  </div>
-  <div class="field">
-    Location of Caller (City, State): <%= f.text_field :locationofnumber %>
-  </div>
+    <div class = "searchform" id ="form2" style="visibility:hidden">
+      <center>
+      <%= form_tag reportnumbers_path, :method => 'get' do %>
+      <font color="black" size="11"> <b>Search a Phone Number: </b> </font> 
+      <br> <br> <br> 
+      <textarea class="form-control" id="number-input" rows="1" placeholder="(xxx) xxx-xxxx"<%= text_field_tag :search, params[:search] %></textarea>
+        <br>
+        <label class="btn btn-default" onclick="document.getElementById('form2').style.visibility='visible'; document.getElementById('form1').style.visibility = 'collapse'" value="Show second div">
+        <%= submit_tag "Search" %>
+        </label>
+      <% end %> 
+      </center>
+    </div>
 
-  <div class="field">
-    <%= check_box_tag(:category) %>
-    <%= label_tag(:category, "Spam Number") %>
-    <%= check_box_tag(:category) %>
-    <%= label_tag(:category, "Unknown Number") %>
-    <%= check_box_tag(:category) %>
-    <%= label_tag(:category, "Sales Call") %>
-    <%= check_box_tag(:category) %>
-    <%= label_tag(:category, "Dangerous Caller") %>
-    <%= check_box_tag(:category) %>
-    <%= label_tag(:category, "Other - Explain in Description") %>
-  </div>
+        
+    
+<div class="actualform" id ="form1" style="visibility:collapse">
   
-  <div class="field">
-    Description of Sketchy Number: <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    Report Number: <%= f.submit %>
-  </div>
+   <div class="ctr-content constrained">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h1 class="panel-title">Report Sketchy Numbers Here!</h1>
+          </div>
+          <div class="panel-body">
+         <center>
+      <h5> Note: We are a service that allows you to submit sketchy numbers. We collect these numbers and provide users with the ability to view sketchy numbers. If someone is harrasing you, trying to take your money, or doing anything to interrupt your 
+      safety, please report numbers to your local official authorities. Remember: When in doubt, don't respond! </h5>
+          <%= form_for(@reportnumber) do |f| %>
+          <% if @reportnumber.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@reportnumber.errors.count, "error") %> prohibited this reportnumber from being saved:</h2>
+              <ul>
+              <% @reportnumber.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+              </ul>
+          </div>
+            <% end %>
+          <div class="field">
+            Date (MM/DD/YYYY): <%= f.text_field :date %>
+          </div>
+          <div class="field">
+            Time Stamp: <%= f.text_field :timestamp %>
+          </div>
+          <div class="field">
+            Ten Digit Phone Number: <%= f.text_field :phonenumber %>
+          </div>
+          <div class="field">
+            Location of Caller (City, State): <%= f.text_field :locationofnumber %>
+          </div>
 
-<% end %>
+          <div class="field">
+            <%= check_box_tag(:category) %>
+            <%= label_tag(:category, "Spam Number") %>
+            <%= check_box_tag(:category) %>
+            <%= label_tag(:category, "Unknown Number") %>
+            <%= check_box_tag(:category) %>
+            <%= label_tag(:category, "Sales Call") %>
+            <%= check_box_tag(:category) %>
+            <%= label_tag(:category, "Dangerous Caller") %>
+            <%= check_box_tag(:category) %>
+            <%= label_tag(:category, "Other - Explain in Description") %>
+          </div>
+  
+          <div class="field">
+            Description of Sketchy Number: <%= f.text_field :description %>
+          </div>
+          <div class="actions">
+                   <%= f.submit "Report" %>
+          </div>
+          <% end %>
+        </center>
+        </font> 
+        </center>
+        </div>
+          
+          
+        </div>
+    </div>    
+  </div>
+</div>
+</div>
+
+
+  
+  <!-- Scripts -->
+  
+  
+  
+  <!-- Twitter Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <!-- Material Design for Bootstrap -->
+<script src="dist/js/material.js"></script>
+<script src="dist/js/ripples.min.js"></script>
+  <script>
+    $.material.init();
+  </script>
+  
+  <!-- Sliders -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+  
+  <!-- Dropdown.js -->
+<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+  <script>
+    $("#dropdown-menu select").dropdown();
+  </script>
+
+
+
+</body>
+
+
+
+</html>

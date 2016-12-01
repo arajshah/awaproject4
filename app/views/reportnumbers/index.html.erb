@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
 
+<p id="notice"><%= notice %></p>
+  
+  
 <h1>List of Reported Numbers</h1>
 
 <%= form_tag reportnumbers_path, :method => 'get' do %>
@@ -18,7 +20,7 @@
       <th>Location of the Caller</th>
       <th>Category</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
@@ -41,4 +43,4 @@
 
 <br>
 
-Report New Number: <%= link_to 'New Reportnumber', new_reportnumber_path %>
+Report New Number: <%= link_to 'Home Page', new_reportnumber_path %>

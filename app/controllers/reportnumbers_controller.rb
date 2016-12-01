@@ -1,7 +1,6 @@
 class ReportnumbersController < ApplicationController
   before_action :set_reportnumber, only: [:show, :edit, :update, :destroy]
 
-
     
   # GET /reportnumbers
   # GET /reportnumbers.json

@@ -1,23 +1,26 @@
 <h1> Custom Search </h1>
-<%= form_for @search, html: {class: "pure-form"} do |s| %> 
+<%# <%= form_for @search, html: {class: "pure-form"} do |s| %> 
 
-<div class="field"> 
-    <%= s.label :phonenumber %> <br /> 
-    <%= s.text_field :phonenumber %>
-</div> 
+<%#<div class="field"> 
+<%#    Ten digit <%= s.label :phonenumber %> <br /> 
+<%#    <%= s.text_field :phonenumber %>
+<%# </div> 
 
-<div class="field"> 
-    <%= s.label :location %> <br /> 
-    <%= s.text_field :location %>
-</div> 
+<%# <div class="field"> 
+<%#    Optional: <%= s.label :location %> <br /> 
+<%#    <%= s.text_field :location %>
+<%# </div> 
 
-<div class="field"> 
-    <%= s.label :category %> <br /> 
-    <%= s.text_field :category, options_for_select(@category), :include_blank ==> true %>
-</div> 
 
-<div class="action"><%= s.submit "Search", class: "pure-button pure-button-primary" %></div>
+<%# <div class="action"><%= s.submit "Search", class: "pure-button pure-button-primary" %></div>
 
-<%end%>
+<%# <%end%> 
 
-<p><%= link_to 'Back', reportnumbers_path %></p>
+
+<%= form_tag reportnumbers_path, :method => 'get' do %>
+Search Phone Number:  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+  <% end %> 
+
+<p>Back to Database: <%= link_to 'Back', reportnumbers_path %></p>
+

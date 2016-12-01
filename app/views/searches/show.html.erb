@@ -1,0 +1,22 @@
+<h1> Here are some sketchy numbers: </h1>
+
+<p> <%= link_to 'Back', new_search_path %></p>
+
+<% if @search.search_reportnumbers.empty? %>
+    <p> Oops! No records found. Please submit your number as a new report here: !</p>
+      <label class="btn btn-default">
+          <a href="https://awaproject4-asitrshah.c9users.io/reportnumbers/new"> Report Number </script>
+    
+    <% else %>
+    
+    <% search.search_reportnumbers.each do |c| %>
+    <br>
+    
+    <div> class="div"
+        <h1><%= c.name %></h1>
+        <p> Phone number: <%= c.phonenumber %></p>
+        <p> Location: <%= c.locationofnumber %></p>
+     </div>
+    <% end %>
+        
+<% end %> 
